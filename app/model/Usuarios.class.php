@@ -18,9 +18,10 @@ class Usuario extends Database {
 		}
 	}
 
-	function actualizarUsuario($newPassword, $newEmail, $user) {
+	//Editar Usuario
+	function editarUsuario($newPassword, $newEmail, $user) {
 		$this->conectar();
-		$sql = "UPDATE usuarios SET password='$newPassword', email='$newEmail' WHERE username=$user";
+		$sql = "UPDATE usuarios SET password='$newPassword', email='$newEmail' WHERE username='$user'";
 		if ($query = $this->consulta($sql)) {
 			$this->desconectar();
 			return true;

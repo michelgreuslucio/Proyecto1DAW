@@ -7,7 +7,7 @@ class Receta extends Database {
 	//Insertar Receta en la base de datos.
 	function insertarReceta(/*Campos Recetas*/)	{
 		$this->conectar();
-		$sql = "INSERT INTO usuarios VALUES ('$username', '$password', '$email')";
+		$sql = "INSERT INTO recetas VALUES (/*campos a insertar de la tabla recetas*/)";
 		if ($query = $this->consulta($sql)) {
 			$this->desconectar();
 			return true;
@@ -18,9 +18,10 @@ class Receta extends Database {
 		}
 	}
 
-	function actualizarUsuario($newPassword, $newEmail, $user) {
+	//Editar Recetas
+	function editarReceta(/*campos a insertar de la tabla recetas*/) {
 		$this->conectar();
-		$sql = "UPDATE usuarios SET password='$newPassword', email='$newEmail' WHERE username=$user";
+		$sql = "UPDATE usuarios SET /*campos a insertar de la tabla recetas*/";
 		if ($query = $this->consulta($sql)) {
 			$this->desconectar();
 			return true;
