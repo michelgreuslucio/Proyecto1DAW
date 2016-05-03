@@ -2,9 +2,7 @@
 
 $pageTitle = "Auth";
 
-//if user esta logueat:
 include("app/view/include/header.php");
-//else->index.php?register
 echo "Login/Register";
 
 ?>

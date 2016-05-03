@@ -15,12 +15,6 @@ else {
 		case "register":
 			include("app/view/pages/auth.php");
 			break;
-		case "search":
-			include("app/view/pages/search.php");
-			break;
-		case "profile":
-			include("app/view/pages/profile.php");
-			break;
 		default:
 			$pageTitle = "Termibux";
 			include("app/view/index.php");
