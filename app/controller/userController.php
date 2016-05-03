@@ -3,19 +3,19 @@
 require 'app/model/Usuarios.class.php';
 
 //"Funcion" de Registrar Usuario
-if(isset($_POST["register"])) {
+if(isset($_GET["register"])) {
 	$usuario = new Usuario();
-	$usuario->registrarUsuario($_POST["username"], $_POST["password"], $_POST["email"]);
+	$usuario->registrarUsuario($_GET["username"], $_GET["password"], $_GET["email"]);
 }
 //"Funcion" de Login Usuario
-elseif(isset($_POST["login"])) {}
+elseif(isset($_GET["login"])) {}
 //"Funcion" de Editar Usuario
-elseif(isset($_POST["editUser"])) {
+elseif(isset($_GET["editUser"])) {
 	$usuario = new Usuario();
-	$usuario->actualizarUsuario($_POST["newPassword"], $_POST["newEmail"], $currentUser);//Falta algo per a traurer el currentUser
+	$usuario->editarUsuario($_GET["newPassword"], $_GET["newEmail"], $currentUser);//Falta algo per a traurer el currentUser
 }
 //En caso de que no se seleccione nada de lo anterior(Muy poco probable de que pase).
-else{
+else {
 	//Display algún error.
 }
 
