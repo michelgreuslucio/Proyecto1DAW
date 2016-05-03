@@ -4,7 +4,7 @@
 
 		public function conectar() {
 			if(!isset($this->conexion)) {
-				$this->conexion = (mysqli_connect("localhost", "root", "", "database")) or die(mysqli_error());
+				$this->conexion = (mysqli_connect("localhost", "root", "", "termibux")) or die(mysqli_error());
 			}
 		}
 
@@ -13,7 +13,7 @@
 		}
 
 		public function desconectar() {
-			mysqli_close();
+			mysqli_close($this->conexion);
 		}
 	}
 ?>

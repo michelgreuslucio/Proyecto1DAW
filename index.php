@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 //Fer algo per a tindrer els directoris accesibles.
 
 $page = "login";
@@ -21,5 +22,7 @@ switch($page) {
 		include("app/view/default/index.php");
 		break;
 }
+=======
+>>>>>>> cc7d084892a4795596ea36c0191d6d2459bf5ded
 
 ?>

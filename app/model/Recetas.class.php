@@ -7,7 +7,7 @@ class Receta extends Database {
 	//Insertar Receta en la base de datos.
 	function insertarReceta(/*Campos Recetas*/)	{
 		$this->conectar();
-		$sql = "INSERT INTO recetas VALUES (/*campos a insertar de la tabla recetas*/)";
+		$sql = "INSERT INTO recetas(nombreReceta/*cosas*/) VALUES ('$nombre', '$ingredientes', '$pasos')";//Cambiar cuando esté claro
 		if ($query = $this->consulta($sql)) {
 			$this->desconectar();
 			return true;

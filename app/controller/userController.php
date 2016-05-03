@@ -1,6 +1,6 @@
 <?php 
 
-require 'app/model/Usuarios.class.php';
+include_once($_SERVER['DOCUMENT_ROOT'] ."/GitHub/Proyecto1DAW/app/model/Usuarios.class.php");
 
 //"Funcion" de Registrar Usuario
 if(isset($_GET["register"])) {
@@ -13,6 +13,9 @@ elseif(isset($_GET["login"])) {}
 elseif(isset($_GET["editUser"])) {
 	$usuario = new Usuario();
 	$usuario->editarUsuario($_GET["newPassword"], $_GET["newEmail"], $currentUser);//Falta algo per a traurer el currentUser
+}
+elseif(isset($_POST["no-member"])) {
+	//dejar que vea la web como visitante(sin login)
 }
 //En caso de que no se seleccione nada de lo anterior(Muy poco probable de que pase).
 else {
