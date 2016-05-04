@@ -7,12 +7,15 @@ if(empty($_GET)) {
 	include("app/view/index.php");
 }
 else {
-
-	switch($_GET["page"]) {
+	switch($_GET["action"]) {
 		case "login":
+			$_GET["page"] = "login";
+			$pageTitle = "Login";
 			include("app/view/pages/auth.php");
 			break;
 		case "register":
+			$_GET["page"] = "register";
+			$pageTitle = "Register";
 			include("app/view/pages/auth.php");
 			break;
 		default:
