@@ -2,24 +2,25 @@
 
 include_once($_SERVER['DOCUMENT_ROOT'] ."/GitHub/Proyecto1DAW/app/model/Usuarios.class.php");
 
-//"Funcion" de Registrar Usuario
-if(isset($_GET["register"])) {
-	$usuario = new Usuario();
-	$usuario->registrarUsuario($_GET["username"], $_GET["password"], $_GET["email"]);
-}
-//"Funcion" de Login Usuario
-elseif(isset($_GET["login"])) {}
-//"Funcion" de Editar Usuario
-elseif(isset($_GET["editUser"])) {
-	$usuario = new Usuario();
-	$usuario->editarUsuario($_GET["newPassword"], $_GET["newEmail"], $currentUser);//Falta algo per a traurer el currentUser
-}
-elseif(isset($_POST["no-member"])) {
-	//dejar que vea la web como visitante(sin login)
-}
-//En caso de que no se seleccione nada de lo anterior(Muy poco probable de que pase).
-else {
-	//Display algún error.
+if(isset($_GET["action"])) {
+	switch($_GET["action"]) {
+		case "login":
+			break;
+		case "register":
+			$usuario = new Usuario();
+			$usuario->registrarUsuario($_POST["username"], $_POST["password"], $_POST["email"]);
+			break;
+		case "edit":
+			$usuario = new Usuario();
+			$usuario->editarUsuario($_POST["newPassword"], $_POST["newEmail"], $currentUser);//Falta algo per a traurer el currentUser
+			break;
+		case "no-member":
+			//dejar que vea la web como visitante(sin login)
+			break;
+		default:
+			//En caso de que no se seleccione nada de lo anterior(Poco probable de que pase).
+			break;
+	}
 }
 
 ?>
