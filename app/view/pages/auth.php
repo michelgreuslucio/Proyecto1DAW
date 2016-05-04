@@ -1,8 +1,11 @@
 <?php
-include("include/header.php");
-include("../../controller/userController.php");
-?>
 
+$pageTitle = "Auth";
+
+include("app/view/include/header.php");
+echo "Login/Register";
+
+?>
 
 <div class="login">
         <div class="page-container">
@@ -12,18 +15,16 @@ include("../../controller/userController.php");
            <div class="subtitulo">
                 Busca y encuentra tus recetas.
             </div>
-            <form action="index.php" method="post">
+            <form action="app/controller/userController.php" method="post">
                 <input type="text" name="username" class="username" placeholder="Nombre de usuario">
                 <input type="password" name="password" class="password" placeholder="Contraseña">
-                <button type="submit" name="login">Entra</button>
+                <input type="email" name="email" class="email" placeholder="Correo">
                 <button type="submit" name="register">Regístrate</button>
-                <button class="ghost-button" type="submit" name="no-member">Entra sin registrarse</button>
             </form>
         </div>
 </div>
 
-
-
 <?php
-include("include/footer.php");
+//if user esta logueat:
+include("app/view/include/footer.php");
 ?>

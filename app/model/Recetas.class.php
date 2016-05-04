@@ -18,7 +18,7 @@ class Receta extends Database {
 		}
 	}
 
-	//Editar Recetas
+	//Editar Receta
 	function editarReceta(/*campos a insertar de la tabla recetas*/) {
 		$this->conectar();
 		$sql = "UPDATE usuarios SET /*campos a insertar de la tabla recetas*/";
