@@ -15,5 +15,24 @@
 		public function desconectar() {
 			mysqli_close($this->conexion);
 		}
+
+		function numeroFilas($result){
+			if(!is_resource($result)) {
+				return false;
+			}
+			else {
+				return mysqli_num_rows($result);
+			}
+		
+	}
+
+		function datosArray($result){
+			if(!is_resource($result)) {
+				return false
+			}
+			else {
+				return mysqli_fetch_assoc($result);
+			}
+		}
 	}
 ?>
