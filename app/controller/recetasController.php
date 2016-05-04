@@ -3,24 +3,28 @@
 require 'app/model/Recetas.class.php';
 
 //"Funcion" de Insertar Receta
-if(isset($_GET["insertarReceta"])) {
+if(isset($_GET["action"])) {
 	$receta = new Receta();
-	$receta->insertarReceta(/*campos a insertar de la tabla recetas*/);
-}
-//"Funcion" de Editar Receta
-if(isset($_GET["editarReceta"])) {}
-if(isset($_POST["insertReceta"])) {
-	$receta = new Receta();
-	$receta->insertReceta($titulo, $ingredientes, $pasos);
-}
-//"Funcion" de Editar Receta
-elseif(isset($_POST["editReceta"])) {
-	$usuario = new Receta();
-	$usuario->actualizarReceta($_POST["newTitle"], $_POST["newIngredients"], $_POST["newPasos");//Cambiar cuando esté claro
-}
-//En caso de que no se seleccione nada de lo anterior(Muy poco probable de que pase).
+	switch($_GET["action"]) {
+		case "insertarReceta":
+			$receta->insertarReceta($_POST["imagenReceta"], $_POST["nombreReceta"], $_POST["pasos"], $_POST["ingredientes"], $_POST["user"]);
+			break;
+		case "editarReceta":
+			$receta->actualizarReceta($_POST["NuevaImagen"], $_POST["nuevoNombre"], $_POST["NuevosPasos"], $_POST["nuevosIngredientes"], $_POST["user"]);
+			break;
+		case "recetasArray":
+			$receta->recetasArray();
+			break;
+		case "eliminarReceta":
+			$receta->eliminarReceta($idReceta);
+		default:
+			$receta->desconectar();
+			break;
+	}
+
+	
 else {
-	//Display algún error.
+	//Error
 }
 
 ?>
