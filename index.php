@@ -1,6 +1,6 @@
 <?php
 
-//Fer algo per a tindrer els directoris accesibles.
+//Fer algo per a tindrer els directoris accesibles
 
 if(empty($_GET)) {
 	$pageTitle = "Termibux";
