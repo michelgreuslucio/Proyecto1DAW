@@ -1,6 +1,6 @@
 <?php 
 
-include_once($_SERVER['DOCUMENT_ROOT'] ."/GitHub/Proyecto1DAW/app/model/Usuarios.class.php");
+include_once($_SERVER['DOCUMENT_ROOT'] ."/GitHub/Proyecto1DAW/app/model/Ingrediente.class.php");
 
 if(isset($_GET["action"])) {
 	$ingrediente = new Ingrediente();
@@ -12,6 +12,7 @@ if(isset($_GET["action"])) {
 			$ingrediente->editarIngrediente($ingredienteName);
 			break;
 		case "ingredientesArray":
+			echo "hola";
 			$ingrediente->ingredientesArray();
 			break;
 		case "deleteIngrediente":

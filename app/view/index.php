@@ -3,11 +3,10 @@
     <head>
         <meta charset = "UTF-8"/>
         <title><?php echo $pageTitle; ?></title>
-        <link rel="stylesheet" type="text/css" href="app/view/css/main.css">
+        <link rel="stylesheet" href="app/view/css/reset.css">
+        <link rel="stylesheet" type="text/css" href="app/view/css/index.css">
         <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="app/view/css/reset.css">
-        <link rel="stylesheet" href="app/view/css/style.css">
     </head>
         <body>
             <div class="login">
@@ -18,13 +17,25 @@
                     <div class="subtitulo">
                         Busca y encuentra tus recetas.
                     </div>
-                    <form action="index.php" method="post">
-                        <input type="text" name="username" class="username" placeholder="Nombre de usuario">
-                        <input type="password" name="password" class="password" placeholder="Contraseña">
-                        <button name="login">Entra</button>
-                        <button name="register">Regístrate</button>
-                        <button class="ghost-button" type="submit" name="no-member">Entra sin registrarse</button>
-                    </form>
+                    <div class="search">
+                        <input list="browsers">
+                        <datalist id="browsers">
+                            <?php
+                                //consulta
+                                //recorrer las filas de la consulta
+                                include("app/controller/ingredientesController.php");
+                                $ingredientes = new Ingrediente();
+                                $lista=$ingredientes->ingredientesArray();
+                                foreach ($lista as $key => $value) {
+                                   echo '<option value="'.$value.'">';
+                                }
+                                ?>
+                        </datalist>
+                        <button type="submit" name="add">Añadir</button>
+                        <button type="submit" name="search">Buscar</button>
+                        <textarea class="textarea"></textarea>
+
+                    </div>
                 </div>
             </div>
         </body>

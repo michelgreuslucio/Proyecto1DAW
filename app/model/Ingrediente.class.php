@@ -49,14 +49,24 @@ class Ingrediente extends Database {
 	//Devuelve un array con los datos
 	function ingredientesArray() {
 		$this->conectar();
-		$sql = "SELECT id, nombre FROM ingredientes";
-		if($this->numeroFilas($sql) > 0) {		
-			while ($currentIngredient = $this->datosArray($query)) {
-				$ids[] = $currentIngredient["id"];
-				$nombres[] = $currentIngredient["nombre"];
+		$sql = "SELECT nombre FROM ingredientes";
+		$resultado = $this->consulta($sql);
+		//ejecutar
+		echo "<br>";
+		echo "<br>";
+		var_dump($this->numeroFilas($resultado));
+		echo "<br>";
+		echo "<br>";
+		echo "<br>";
+		if($this->numeroFilas($resultado) > 0) {		
+			while ($currentIngredient = $this->datosArray($resultado)) {
+				//$ids[] = $currentIngredient["id"];
+				//$nombres[] = $currentIngredient["nombre"];
+				$nombres[] = $currentIngredient->nombre;
 			}
 			$this->desconectar();
-			return array("ids" => $ids, "nombres" => $nombres);
+			//return array("ids" => $ids, "nombres" => $nombres);
+			return $nombres;
 		}
 		else {
 			$this->desconectar();
