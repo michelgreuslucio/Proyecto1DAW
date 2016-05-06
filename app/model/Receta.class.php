@@ -49,14 +49,17 @@ class Receta extends Database {
 	//Devuelve un array con los datos
 	function recetasArray() {
 		$this->conectar();
-		$sql = "SELECT id, nombre FROM recetas";
-		if($this->numeroFilas($sql) > 0) {		
-			while ($currentReceta = $this->datosArray($query)) {
-				$ids[] = $currentReceta["id"];
-				$nombres[] = $currentReceta["nombre"];
+		$sql = "SELECT nombre FROM recetas";
+		$resultado = $this->consulta($sql);
+		if($this->numeroFilas($resultado) > 0) {		
+			while ($currentReceta = $this->datosArray($resultado)) {
+				//$ids[] = $currentReceta["id"];
+				//$nombres[] = $currentReceta["nombre"];
+				$nombre[] = $currentReceta->nombre;
 			}
 			$this->desconectar();
-			return array("ids" => $ids, "nombres" => $nombres);
+			//return array("ids" => $ids, "nombres" => $nombres);
+			return $nombre;
 		}
 		else {
 			$this->desconectar();

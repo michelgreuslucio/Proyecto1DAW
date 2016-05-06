@@ -1,6 +1,8 @@
 <?php
 
-//Fer algo per a tindrer els directoris accesibles.
+//Sesion
+$pageTitle = "Termibux";
+include("app/view/include/header.php");
 
 if(empty($_GET)) {
 	$pageTitle = "Termibux";
@@ -18,6 +20,10 @@ else {
 			$pageTitle = "Register";
 			include("app/view/pages/auth.php");
 			break;
+		case "search":
+			$pageTitle = "Buscar";
+			include("app/view/pages/search.php");
+			break;
 		default:
 			$pageTitle = "Termibux";
 			include("app/view/index.php");
@@ -25,5 +31,7 @@ else {
 	}
 	
 }
+
+include("app/view/include/footer.php");
 
 ?>
