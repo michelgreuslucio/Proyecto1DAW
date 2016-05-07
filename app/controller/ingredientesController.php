@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-include_once($_SERVER['DOCUMENT_ROOT'] ."/GitHub/Proyecto1DAW/app/model/Ingrediente.class.php");
+include("app/model/Ingrediente.class.php");
 
 if(isset($_GET["action"])) {
 	$ingrediente = new Ingrediente();
@@ -12,8 +12,13 @@ if(isset($_GET["action"])) {
 			$ingrediente->editarIngrediente($ingredienteName);
 			break;
 		case "ingredientesArray":
-			echo "hola";
 			$ingrediente->ingredientesArray();
+			break;
+		case "listarIngredientes":
+			$lista=$ingredientes->ingredientesArray();
+            foreach ($lista as $key => $value) {
+                print("<option value=".$value.">\n");
+            }
 			break;
 		case "deleteIngrediente":
 			$ingrediente->eliminarIngrediente($_POST["idIngrediene"]);

@@ -24,6 +24,10 @@ else {
 			$pageTitle = "Buscar";
 			include("app/view/pages/search.php");
 			break;
+		case "receta":
+			$pageTitle = "Receta";
+			include("app/view/pages/receta.php");
+			break;
 		default:
 			$pageTitle = "Termibux";
 			include("app/view/index.php");

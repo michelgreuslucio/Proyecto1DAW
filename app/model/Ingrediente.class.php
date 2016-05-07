@@ -53,8 +53,8 @@ class Ingrediente extends Database {
 		$resultado = $this->consulta($sql);
 		if($this->numeroFilas($resultado) > 0) {		
 			while ($currentIngredient = $this->datosArray($resultado)) {
-				//$ids[] = $currentIngredient["id"];
-				//$nombres[] = $currentIngredient["nombre"];
+				//$ids[] = $currentIngredient[0];
+				//$nombres[] = $currentIngredient[1];
 				$nombres[] = $currentIngredient->nombre;
 			}
 			$this->desconectar();

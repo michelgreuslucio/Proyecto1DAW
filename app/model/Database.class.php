@@ -16,15 +16,13 @@
 			mysqli_close($this->conexion);
 		}
 
-		function numeroFilas($result){
-			
-				return mysqli_num_rows($result);
-			
-		
-	}
+		function numeroFilas($result){	
+			return mysqli_num_rows($result);
+
+		}
 
 		function datosArray($result){
-				return mysqli_fetch_object($result);
+			return mysqli_fetch_object($result);
 			
 		}
 	}
